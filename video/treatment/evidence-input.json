@@ -1,1 +1,14 @@
-{"baseline":"verify-2026-11-18T13-58-48-537Z-7193a823","regression":"checkout-2026-11-18T14-04-57-664Z-629b7cc1","failedRepair":"repair-2026-11-18T14-06-53-854Z-9e52b72a"}
+{
+  "baseline": "verify-2026-11-18T13-58-48-537Z-7193a823",
+  "regression": "checkout-2026-11-18T14-04-57-664Z-629b7cc1",
+  "failedRepair": "repair-2026-11-18T14-06-53-854Z-9e52b72a",
+  "repair": "repair-2026-11-18T14-19-12-428Z-ae74f534",
+  "only": [
+    "candidate",
+    "verified",
+    "contract-rejection",
+    "build-rejection"
+  ],
+  "demo": "demo-2026-11-18T14-27-45-150Z-69c601d3",
+  "includeVerification": true
+}

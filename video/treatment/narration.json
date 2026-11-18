@@ -33,7 +33,7 @@
     "id": "repair",
     "start": 133.3,
     "end": 166,
-    "text": "The repair shown here was supplied through the developer mediated proposal mode. This is its actual application diff. It restores the missing SAVE10 calculation. Caustica compares the entire workspace before and after the proposal. Only declared, existing application files may change. Added files, removed inputs, contract edits and harness edits reject the proposal. An accepted diff becomes a separate immutable candidate. A human supplied repair still needs fresh browser verification against the same frozen requirement and independent control."
+    "text": "The repair shown here was supplied through the developer mediated proposal mode. This is its actual application diff. It restores the missing SAVE10 calculation. Caustica compares the entire workspace before and after the proposal. Only declared, existing application files may change. Added files, removed inputs, contract edits and harness edits reject the proposal. An accepted diff becomes a separate immutable candidate. A developer mediated repair still needs fresh browser verification against the same frozen requirement and independent control."
   },
   {
     "id": "candidate",

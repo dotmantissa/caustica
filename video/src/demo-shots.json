@@ -1,0 +1,359 @@
+[
+  {
+    "from": 0,
+    "to": 3,
+    "kind": "intro",
+    "media": "healthy",
+    "trim": 3.1,
+    "crop": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    }
+  },
+  {
+    "from": 3,
+    "to": 10,
+    "media": "healthy",
+    "trim": 2.3,
+    "crop": {
+      "x": 800,
+      "y": 480,
+      "s": 0.94
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "seam": "matchCut"
+  },
+  {
+    "from": 10,
+    "to": 18,
+    "kind": "contract",
+    "media": "healthy",
+    "trim": 8,
+    "crop": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "seam": "sharedElement"
+  },
+  {
+    "from": 18,
+    "to": 28,
+    "record": "frozen",
+    "seam": "blurThrough",
+    "trim": 0.8
+  },
+  {
+    "from": 28,
+    "to": 34,
+    "kind": "diagram",
+    "seam": "sharedElement"
+  },
+  {
+    "from": 34,
+    "to": 40,
+    "record": "build",
+    "seam": "matchCut",
+    "trim": 0.8
+  },
+  {
+    "from": 40,
+    "to": 46,
+    "media": "healthy",
+    "trim": 2.7,
+    "crop": {
+      "x": 800,
+      "y": 480,
+      "s": 0.94
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "seam": "blurThrough"
+  },
+  {
+    "from": 46,
+    "to": 51,
+    "media": "healthy",
+    "trim": 8.4,
+    "crop": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "seam": "matchCut"
+  },
+  {
+    "from": 51,
+    "to": 57,
+    "media": "healthy",
+    "trim": 12.5,
+    "crop": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "target": {
+      "x": 1080,
+      "y": 680,
+      "s": 1.36
+    },
+    "seam": "sharedElement"
+  },
+  {
+    "from": 57,
+    "to": 63,
+    "media": "healthy",
+    "trim": 17.8,
+    "crop": {
+      "x": 800,
+      "y": 480,
+      "s": 0.94
+    },
+    "target": {
+      "x": 810,
+      "y": 735,
+      "s": 1.2
+    },
+    "seam": "matchCut"
+  },
+  {
+    "from": 63,
+    "to": 69,
+    "media": "healthy",
+    "trim": 23.2,
+    "crop": {
+      "x": 810,
+      "y": 900,
+      "s": 1.2
+    },
+    "target": {
+      "x": 810,
+      "y": 900,
+      "s": 1.2
+    },
+    "seam": "blurThrough",
+    "paneHeight": 430
+  },
+  {
+    "from": 69,
+    "to": 75,
+    "record": "baseline",
+    "seam": "sharedElement",
+    "trim": 0.8
+  },
+  {
+    "from": 75,
+    "to": 84,
+    "media": "control",
+    "trim": 1.2,
+    "crop": {
+      "x": 800,
+      "y": 480,
+      "s": 0.94
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "seam": "blurThrough"
+  },
+  {
+    "from": 84,
+    "to": 91,
+    "media": "control",
+    "trim": 10.2,
+    "crop": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "seam": "matchCut"
+  },
+  {
+    "from": 91,
+    "to": 100,
+    "record": "assertion",
+    "seam": "sharedElement",
+    "trim": 0.8
+  },
+  {
+    "from": 100,
+    "to": 108,
+    "record": "probe",
+    "seam": "blurThrough",
+    "trim": 0.8
+  },
+  {
+    "from": 108,
+    "to": 118,
+    "media": "regression",
+    "trim": 3,
+    "crop": {
+      "x": 800,
+      "y": 480,
+      "s": 0.94
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "seam": "matchCut"
+  },
+  {
+    "from": 118,
+    "to": 126,
+    "record": "bundle",
+    "seam": "sharedElement",
+    "trim": 0.8
+  },
+  {
+    "from": 126,
+    "to": 133,
+    "record": "transcript",
+    "trim": 0.8,
+    "seam": "blurThrough"
+  },
+  {
+    "from": 133,
+    "to": 141,
+    "record": "transcript",
+    "trim": 7.8,
+    "seam": "matchCut"
+  },
+  {
+    "from": 141,
+    "to": 151,
+    "record": "diff",
+    "seam": "sharedElement",
+    "trim": 0.8
+  },
+  {
+    "from": 151,
+    "to": 158,
+    "record": "proposal",
+    "seam": "blurThrough",
+    "trim": 0.8
+  },
+  {
+    "from": 158,
+    "to": 166,
+    "record": "candidate",
+    "seam": "matchCut",
+    "trim": 0.8
+  },
+  {
+    "from": 166,
+    "to": 178,
+    "media": "candidate",
+    "trim": 3,
+    "crop": {
+      "x": 800,
+      "y": 480,
+      "s": 0.94
+    },
+    "target": {
+      "x": 1100,
+      "y": 550,
+      "s": 1.38
+    },
+    "seam": "blurThrough"
+  },
+  {
+    "from": 178,
+    "to": 185,
+    "media": "candidate",
+    "trim": 23,
+    "crop": {
+      "x": 810,
+      "y": 900,
+      "s": 1.2
+    },
+    "target": {
+      "x": 810,
+      "y": 900,
+      "s": 1.2
+    },
+    "seam": "sharedElement",
+    "paneHeight": 430
+  },
+  {
+    "from": 185,
+    "to": 195,
+    "record": "verified",
+    "seam": "matchCut",
+    "trim": 0.8
+  },
+  {
+    "from": 195,
+    "to": 208,
+    "record": "contract-rejection",
+    "seam": "blurThrough",
+    "trim": 0.8
+  },
+  {
+    "from": 208,
+    "to": 222,
+    "record": "build-rejection",
+    "seam": "sharedElement",
+    "trim": 0.8
+  },
+  {
+    "from": 222,
+    "to": 230,
+    "record": "report",
+    "seam": "matchCut",
+    "trim": 1.1,
+    "crop": {
+      "x": 800,
+      "y": 510,
+      "s": 1.05
+    },
+    "target": {
+      "x": 800,
+      "y": 510,
+      "s": 1.05
+    }
+  },
+  {
+    "from": 230,
+    "to": 234,
+    "kind": "claim",
+    "seam": "blurThrough"
+  },
+  {
+    "from": 234,
+    "to": 240,
+    "kind": "end",
+    "seam": "sharedElement"
+  }
+]

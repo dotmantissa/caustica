@@ -9,6 +9,12 @@ for s in json.loads((R/'qa/narration-fit.json').read_text()):
 bed,rate=sf.read(R/'audio/music-effects.wav',always_2d=True);assert rate==sr
 n=min(len(bed),length);mix[:n]+=bed[:n]*10**(-18/20)
 mix+=voice
+# A restrained licensed, recorded impact gives the title an audible arrival
+# before narration begins. The original Mixkit record remains in audio/sfx/.
+opening_path=R/'audio/kit/real-hit_1.wav';opening,rate=sf.read(opening_path,always_2d=True);assert rate==sr
+if opening.shape[1]==1:opening=np.repeat(opening,2,axis=1)
+opening_start=round(.08*sr);mix[opening_start:opening_start+len(opening)]+=opening*10**(-14/20)
+(R/'qa/audio-opening.json').write_text(json.dumps({'source':'audio/kit/real-hit_1.wav','licence':'audio/sfx/mixkit-757.licence.json','start':.08,'gainDb':-14,'reason':'Audible centered title arrival before narration; licensed recorded impact'},indent=2))
 sf.write(R/'audio/voice-timeline.wav',voice,sr,subtype='PCM_24');sf.write(R/'audio/premaster.wav',mix,sr,subtype='PCM_24')
 (R/'public/audio').mkdir(parents=True,exist_ok=True)
 env=dict(os.environ,LD_LIBRARY_PATH=c['ffmpeg_library_path'])

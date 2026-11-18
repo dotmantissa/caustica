@@ -1,16 +1,33 @@
 {
-  "complete": false,
+  "complete": true,
   "media": {
     "healthy": "healthy.mp4",
     "control": "control.mp4",
-    "regression": "regression.mp4"
+    "regression": "regression.mp4",
+    "candidate": "candidate.mp4"
   },
   "records": {
     "frozen": "record-frozen.webm",
     "build": "record-build.webm",
     "baseline": "record-baseline.webm",
     "assertion": "record-assertion.webm",
-    "probe": "record-probe.webm"
+    "probe": "record-probe.webm",
+    "bundle": "record-bundle.webm",
+    "transcript": "record-transcript.webm",
+    "diff": "record-diff.webm",
+    "proposal": "record-proposal.webm",
+    "candidate": "record-candidate.webm",
+    "verified": "record-verified.webm",
+    "contract-rejection": "record-contract-rejection.webm",
+    "build-rejection": "record-build-rejection.webm",
+    "report": "record-report.webm"
   },
-  "reason": "Live proof pending"
+  "reason": "Fresh candidate positive/control and both authentic rejection results linked",
+  "demo": "demo-2026-11-18T14-27-45-150Z-69c601d3",
+  "baseline": "verify-2026-11-18T13-58-48-537Z-7193a823",
+  "repair": "repair-2026-11-18T14-19-12-428Z-ae74f534",
+  "verification": "verify-2026-11-18T14-19-12-584Z-fc3c0da1",
+  "adapter": "developer-mediated",
+  "candidateDigest": "e8ed602ca01fc848c56b88329f8406f59003415cc241eb189f4807a8b7b919df",
+  "recordingScope": "Separate genuine browser demonstrations of exact snapshots and escaped actual records; not historical Kane session recordings"
 }

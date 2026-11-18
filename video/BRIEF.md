@@ -7,6 +7,6 @@ Hard bans: no corner badges, edge captions, eyebrows, watermarks, time labels or
 
 The carried element is the exact $90 requirement, frozen into input, evaluated as an assertion, included with the source-repair bundle and bound to the final receipt. Film predominantly records real interactions and genuine evidence records. Replays explicitly described as recorded demonstrations of the exact source snapshots.
 
-Source ownership: video/ only. Root TASKS.md remains canonical and parent-owned. Live proof IDs pending; draft footage may be prepared without claiming a successful repair.
+Source ownership: video/ only. Root TASKS.md remains canonical and parent-owned. Final source/receipt IDs are linked in src/proof.json. The final master uses native Remotion graphic plates and all7200 authored motion states with OpenCV/FFmpeg composition of genuine recordings; the full Remotion composition remains editable. No half-resolution draft frames are enlarged.
 
 Repair mode correction: actual Codex exec failed authentication401 and produced no source edits. Film records that result and identifies the final accepted developer-mediated proposal honestly. Baked dithered forest key-light and paper light plates derive from supplied brand colors.
