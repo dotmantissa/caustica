@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "contract": "contracts/checkout.json",
+  "context": "contracts/context.md",
+  "appFiles": [
+    "apps/checkout/src/pricing.mjs",
+    "apps/checkout/public/index.html",
+    "apps/checkout/public/app.mjs",
+    "apps/checkout/public/styles.css"
+  ],
+  "boundaryFiles": ["demo/server.mjs", "controls/ignore-discount.mjs"],
+  "server": "demo/server.mjs",
+  "control": "controls/ignore-discount.mjs",
+  "runtime": {"timeoutSeconds": 180, "maxSteps": 20, "kaneVersion": "0.10.6"}
+}

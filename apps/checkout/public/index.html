@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caustica — Checkout</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="module" src="/assets/app.mjs"></script>
+</head>
+<body>
+  <header><a href="/" class="brand">Caustica</a><a href="#history">Order history</a></header>
+  <main>
+    <h1>A place for your next idea.</h1>
+    <div class="checkout">
+      <section class="product" aria-labelledby="product-name">
+        <div class="cover" aria-hidden="true"><span>Caustica<br>Field Notes</span><span class="cover-bottom">Space to think.</span></div>
+        <div><h2 id="product-name">Caustica Field Notes</h2><p>One notebook. An open invitation.</p><p class="product-price">$100.00 <span>· Quantity 1</span></p></div>
+      </section>
+      <section class="summary" aria-labelledby="checkout-heading">
+        <h2 id="checkout-heading">Your order</h2>
+        <form id="coupon-form"><label for="coupon">Coupon code</label><div class="coupon-row"><input id="coupon" name="coupon" autocomplete="off" maxlength="32" aria-describedby="coupon-help"><button type="submit" id="apply">Apply coupon</button></div><p id="coupon-help">Use SAVE10 for 10% off.</p><p id="coupon-status" role="status"></p></form>
+        <dl><div><dt>Subtotal</dt><dd id="subtotal">$100.00</dd></div><div><dt>Discount</dt><dd id="discount">$0.00</dd></div><div class="total-row"><dt>Total</dt><dd id="total">$100.00</dd></div></dl>
+        <button class="primary" id="place-order">Place order</button>
+        <p class="note">Demo checkout. No payment is collected.</p>
+        <p id="order-status" role="status"></p><p id="error" role="alert" hidden></p>
+      </section>
+    </div>
+    <section class="history" id="history" aria-labelledby="history-heading"><h2 id="history-heading">Order history</h2><p id="history-status" role="status">Loading order history…</p><ul id="orders"></ul><button id="retry-history" hidden>Retry order history</button></section>
+  </main>
+  <footer>Caustica checkout fixture · USD</footer>
+</body>
+</html>

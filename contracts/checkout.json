@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "title": "Checkout with SAVE10",
+  "objective": "Go to {{app_url}}. Apply SAVE10 to Caustica Field Notes. Store the displayed Total as 'displayed_total'. Assert that Total is 90 dollars. Place the order. Store its order identifier as 'order_id'. Refresh the page and open Order history. Assert that the same order is shown with Caustica Field Notes, coupon SAVE10 and a 90 dollar total.",
+  "requirements": [
+    {"id":"coupon-total","expectedCents":9000,"description":"SAVE10 changes the visible total from $100.00 to $90.00."},
+    {"id":"order-total","expectedCents":9000,"description":"Place order persists Caustica Field Notes, SAVE10 and a $90.00 total."},
+    {"id":"order-refresh","expectedCents":9000,"description":"Order history shows the same order and amount after refresh."}
+  ]
+}

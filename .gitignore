@@ -1,0 +1,12 @@
+/TASKS.md
+[Aa][Gg][Ee][Nn][Tt].[Mm][Dd]
+[Aa][Gg][Ee][Nn][Tt][Ss].[Mm][Dd]
+node_modules/
+dist/
+.caustica/
+.testmuai/
+.context/
+.env
+.env.*
+!.env.example
+*.log

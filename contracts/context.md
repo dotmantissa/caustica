@@ -1,0 +1,1 @@
+This is an owned demonstration checkout with one product and quantity one. All amounts are USD. There are no external payments, taxes or shipping. Interact through the visible UI and verify the objective exactly. Do not modify files or substitute a different expected amount. A failed assertion must stop the run.
