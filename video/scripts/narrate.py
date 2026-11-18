@@ -42,6 +42,12 @@ async def main():
    sec=lambda a:int(a[0])*3600+int(a[1])*60+int(a[2])+int(a[3])/1000
    start=s['start']+sec(times[0])/s['tempo'];end=s['start']+sec(times[1])/s['tempo']
    captions.append({'text':' '.join(lines[2:]),'startMs':round(start*1000),'endMs':round(end*1000),'timestampMs':round((start+end)*500),'confidence':None})
+ # Provider sentence boundaries can overlap by about50ms. Keep each sentence's
+ # start and trim the previous display interval so sidecar players show one cue.
+ for i,c in enumerate(captions):
+  if i+1<len(captions):c['endMs']=min(c['endMs'],captions[i+1]['startMs']-1)
+  if c['endMs']<=c['startMs']:raise ValueError('Caption interval is not positive')
+  c['timestampMs']=round((c['startMs']+c['endMs'])/2)
  (ROOT/'output/Caustica_Demo_Final.captions.json').write_text(json.dumps(captions,indent=2))
  (ROOT/'output/Caustica_Demo_Final.srt').write_text('\n\n'.join(f"{i+1}\n{stamp(c['startMs']/1000)} --> {stamp(c['endMs']/1000)}\n{c['text']}" for i,c in enumerate(captions))+'\n')
 asyncio.run(main())

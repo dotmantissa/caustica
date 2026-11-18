@@ -14,8 +14,8 @@
     "render": "node scripts/render-hybrid.mjs",
     "render:remotion": "node scripts/render-final.mjs",
     "render:draft": "node scripts/render-final.mjs --draft",
-    "qa": "node scripts/py.mjs scripts/qa.py",
-    "listen": "node scripts/py.mjs scripts/audio/listen.py"
+    "qa": "node scripts/studio-python.mjs scripts/qa.py",
+    "listen": "node scripts/studio-python.mjs scripts/audio/listen.py"
   },
   "dependencies": {
     "@remotion/cli": "4.0.542",
