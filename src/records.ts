@@ -1,0 +1,8 @@
+import {z} from 'zod';
+const hash=z.string().regex(/^[a-f0-9]{64}$/);
+export const OutcomeSchema=z.object({kind:z.enum(['passed','assertion-failed','inconclusive']),reason:z.string().optional(),acceptanceId:z.enum(['coupon-total','order-total','order-refresh']).optional(),expectedCents:z.number().optional(),observedCents:z.number().optional(),evidenceDigest:hash.optional(),executionId:z.string().optional(),screenshot:z.string().optional(),assertions:z.array(z.object({path:z.string(),status:z.string(),description:z.string()})).optional(),terminal:z.record(z.string(),z.unknown()).optional()}).strict();
+export type Outcome=z.infer<typeof OutcomeSchema>;
+export const RunRecordSchema=z.object({version:z.literal(1),runId:z.string(),createdAt:z.string(),frozenId:z.string(),boundaryDigest:hash,globalVariablesDigest:hash,appDigest:hash,control:z.enum(['none','ignore-discount']),identityValid:z.boolean(),artifactsValid:z.boolean(),controlEffective:z.boolean().optional(),outcome:OutcomeSchema,tools:z.record(z.string(),z.unknown()),artifacts:z.array(z.object({path:z.string(),sha256:hash})),sourceRoot:z.string(),durationMs:z.number()}).strict();
+export type RunRecord=z.infer<typeof RunRecordSchema>;
+export const ReceiptSchema=z.object({version:z.literal(1),kind:z.literal('verification'),runId:z.string(),createdAt:z.string(),frozenId:z.string(),boundaryDigest:hash,globalVariablesDigest:hash,appDigest:hash,sourceRoot:z.string(),verdict:z.enum(['verified','requirement-failed','evidence-rejected','inconclusive']),reason:z.string(),healthy:z.string(),control:z.string().optional(),artifacts:z.array(z.object({path:z.string(),sha256:hash}))}).strict();
+export type Receipt=z.infer<typeof ReceiptSchema>;
