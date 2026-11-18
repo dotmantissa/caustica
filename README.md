@@ -51,6 +51,15 @@ npm run caustica -- repair --failure <checkout-failure-id>
 
 The failure ID is an application execution ID from `run-record.json`, not a verification-pair ID. A repair requires a valid, unchanged failure with the independent fault disabled. For an isolated candidate, add `--source <candidate-root>` to `verify` or `inspect`.
 
+If the subprocess cannot authenticate, the supported alternative is explicit developer-mediated coding-agent feedback. Preserve the failed attempt. Copy its `workspace/` to a private proposal directory, load the actual failure bundle into your available coding agent, and edit only the declared application files. Submit the entire unchanged bundle with the actual feedback text:
+
+```sh
+npm run caustica -- repair --failure <checkout-failure-id> --proposal <proposal-workspace> --feedback <agent-feedback.txt>
+npm run caustica -- demo --resume <incomplete-demo-id> --repair <fresh-verified-repair-id>
+```
+
+The proposal uses the same manifest and frozen-boundary checks and a new real positive/control pair. Receipts and reports label this mode as **developer-mediated**. Continuation creates a new demo record, retaining the original incomplete demonstration and failed subprocess transcript.
+
 | Result | Exit | Meaning |
 |---|---:|---|
 | Verified for this contract and control | 0 | Positive run passed and the matching effective control failed the intended assertion |
