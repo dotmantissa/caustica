@@ -1,0 +1,12 @@
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {spawn} from 'node:child_process';
+import {resolve} from 'node:path';
+const c=JSON.parse(await readFile('../demo-studio.config.json','utf8'));const proof=JSON.parse(await readFile('src/proof.json','utf8'));const draft=process.argv.includes('--draft');
+if(!draft&&!proof.complete)throw new Error('Final render requires completed, linked genuine proof');
+await mkdir('output',{recursive:true});await mkdir('qa',{recursive:true});
+const out=draft?'output/Caustica_Demo_Draft.mp4':'output/Caustica_Demo_Final.mp4';
+const args=['node_modules/@remotion/cli/remotion-cli.js','render','src/index.ts','CausticaDemo',out,'--codec=h264','--pixel-format=yuv420p','--audio-codec=aac','--audio-bitrate=192k','--color-space=bt709','--crf='+ (draft?'23':'16'),'--x264-preset='+ (draft?'superfast':'slow'),'--image-format='+ (draft?'jpeg':'png'),'--concurrency=6','--log=info'];if(draft)args.push('--scale=0.5');
+const operation={startedAt:new Date().toISOString(),composition:'CausticaDemo',output:out,draft,args,proofComplete:proof.complete};await writeFile('qa/render-operation.json',JSON.stringify(operation,null,2));
+const env={...process.env,LD_LIBRARY_PATH:c.browser_library_path+':'+c.ffmpeg_library_path,REMOTION_BROWSER:c.browser_executable,PATH:resolve(c.node,'..')+':'+process.env.PATH};
+await new Promise((ok,fail)=>{const child=spawn(c.node,args,{env,stdio:'inherit'});operation.pid=child.pid;writeFile('qa/render-operation.json',JSON.stringify(operation,null,2));child.on('error',fail);child.on('exit',code=>code===0?ok():fail(new Error('Render failed with code'+code)));});
+operation.completedAt=new Date().toISOString();await writeFile('qa/render-operation.json',JSON.stringify(operation,null,2));console.log(out);

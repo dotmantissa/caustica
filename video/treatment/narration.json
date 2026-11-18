@@ -1,0 +1,62 @@
+[
+  {
+    "id": "problem",
+    "start": 0.7,
+    "end": 18,
+    "text": "Caustica verifies app repairs. Here is the requirement: one notebook, SAVE10, ninety dollars. An AI repair can appear to pass if the expected result changes with the code. That leaves a simple question: did the application improve, or did the requirement move?"
+  },
+  {
+    "id": "freeze",
+    "start": 18.3,
+    "end": 40,
+    "text": "Caustica is a local command line tool. It freezes the acceptance contract, execution context and verification harness before asking for a repair. Declared application files are copied into an isolated snapshot. The browser receives those exact served bytes. The ninety dollar requirement stays outside the repairable application."
+  },
+  {
+    "id": "healthy",
+    "start": 40.3,
+    "end": 75,
+    "text": "This is a recorded demonstration of the healthy source snapshot. Apply SAVE10. The hundred dollar subtotal becomes ninety dollars, with a ten dollar discount. Place the order, then reload. The fresh cart resets, while the saved order still shows the same notebook, coupon and ninety dollar total. Real Kane assertions check this journey. A positive result is only half the proof: the same build also needs its own independent fault check."
+  },
+  {
+    "id": "control",
+    "start": 75.3,
+    "end": 108,
+    "text": "For calibration, Caustica enables a declared response layer fault. It suppresses the discount independently of the application source. This is a deliberate control, not the regression being repaired. The checkout now displays one hundred dollars. The genuine Kane assertion still expects ninety, and fails on the observed hundred. An HTTP quote probe confirms that the fault actually took effect. A missing or inconclusive fault check cannot approve the build."
+  },
+  {
+    "id": "regression",
+    "start": 108.3,
+    "end": 133,
+    "text": "Now the independent fault is disabled. A separate private copy contains a real source regression in coupon pricing. Kane records the failure against the unchanged contract. Caustica bundles that actual assertion, screenshot and frozen requirements for the repair adapter. The Codex attempt in this run could not authenticate. The retained transcript shows that failure; no autonomous repair is claimed."
+  },
+  {
+    "id": "repair",
+    "start": 133.3,
+    "end": 166,
+    "text": "The repair shown here was supplied through the developer mediated proposal mode. This is its actual application diff. It restores the missing SAVE10 calculation. Caustica compares the entire workspace before and after the proposal. Only declared, existing application files may change. Added files, removed inputs, contract edits and harness edits reject the proposal. An accepted diff becomes a separate immutable candidate. A human supplied repair still needs fresh browser verification against the same frozen requirement and independent control."
+  },
+  {
+    "id": "candidate",
+    "start": 166.3,
+    "end": 195,
+    "text": "Here is a recorded demonstration of the repaired candidate. Apply the coupon, place the order, and reload the saved history. Ninety dollars is preserved. The final receipt links a fresh positive Kane run and a fresh independent fault run for this candidate's own bytes. The positive journey passes, while the missing discount control fails the intended assertion. Caustica approves this contract and control, with both records attached."
+  },
+  {
+    "id": "rejections",
+    "start": 195.3,
+    "end": 222,
+    "text": "The receipt also has limits you can test. Change the acceptance requirement to one hundred dollars, then inspect the old proof. Caustica rejects the changed frozen inputs. Inspect that receipt against the different, regressed application bytes, and it rejects the build mismatch too. A green result cannot travel across a changed requirement or a different source snapshot. Those rejection reasons come from the actual inspection results."
+  },
+  {
+    "id": "outcome",
+    "start": 222.3,
+    "end": 234,
+    "text": "Run doctor, freeze, demo and inspect. Keep the receipt and report. Verification covers this contract and control on an honest local host."
+  },
+  {
+    "id": "close",
+    "start": 234.3,
+    "end": 239,
+    "text": "Caustica. Verify the repair."
+  }
+]

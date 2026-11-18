@@ -1,0 +1,36 @@
+{
+  "name": "caustica",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A film built from code: one beat-locked timeline drives picture and sound.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts --port 3417",
+    "stills": "remotion still Mark16 out/stills/mark-16.png --log=error && remotion still MarkSizes out/stills/mark-sizes.png --log=error && remotion still MarkLarge out/stills/mark-large.png --log=error",
+    "check": "tsc --noEmit",
+    "sound": "node scripts/sound.mjs",
+    "cues": "tsx scripts/export-cues.ts --sync src/demo-sync.ts --timeline src/demo-timeline.ts --out qa/cues.json",
+    "music": "node scripts/py.mjs scripts/audio/track.py music",
+    "kit": "node scripts/py.mjs scripts/audio/kit.py render",
+    "plan": "node scripts/py.mjs scripts/audio/plan.py",
+    "audio": "node scripts/py.mjs scripts/audio/plan.py --quiet && node scripts/py.mjs scripts/audio/score.py --cues out/cues.json --score audio/score.json --out public/audio/soundtrack.wav --stems out/stems --json out/qa/score.json",
+    "credits": "node scripts/py.mjs scripts/audio/credits.py",
+    "listen": "node scripts/py.mjs scripts/audio/listen.py",
+    "render": "node scripts/render-final.mjs",
+    "render:preview": "bash scripts/render.sh Film out/preview.mp4 --preview --audio public/audio/soundtrack.wav",
+    "render:draft": "node scripts/render-final.mjs --draft",
+    "gates": "node scripts/py.mjs scripts/forensics.py out/draft.mp4 --cues out/cues.json --grammar-only --json out/qa/forensics-draft.json; node scripts/py.mjs scripts/copy-check.py --ui src; node scripts/logos.mjs check",
+    "qa": "mkdir -p out/qa && node scripts/py.mjs scripts/probe.py out/film.mp4 --spec 1920x1080@30 && node scripts/py.mjs scripts/forensics.py out/film.mp4 --cues out/cues.json --json out/qa/forensics.json && node scripts/py.mjs scripts/av-audit.py out/film.mp4 --cues out/cues.json --stems out/stems --json out/qa/av.json && node scripts/py.mjs scripts/sheet.py out/film.mp4 --out out/qa/sheet.png"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.542",
+    "remotion": "4.0.542",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.0",
+    "tsx": "^4.20.0"
+  }
+}

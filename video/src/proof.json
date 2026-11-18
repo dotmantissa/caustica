@@ -1,0 +1,16 @@
+{
+  "complete": false,
+  "media": {
+    "healthy": "healthy.mp4",
+    "control": "control.mp4",
+    "regression": "regression.mp4"
+  },
+  "records": {
+    "frozen": "record-frozen.webm",
+    "build": "record-build.webm",
+    "baseline": "record-baseline.webm",
+    "assertion": "record-assertion.webm",
+    "probe": "record-probe.webm"
+  },
+  "reason": "Live proof pending"
+}

@@ -1,0 +1,3 @@
+import {CUE,SEAMS} from './demo-timeline';
+export default function cues(){return [...SEAMS.filter((_,i)=>i%3===0).map((s,i)=>({f:s.at,kind:'whoosh',action:'pass',variant:'short',weight:.45,id:'scene-pass-'+i})),{f:CUE.coupon,kind:'click',action:'press',weight:.6,id:'coupon-applied'},{f:CUE.order,kind:'click',action:'success',variant:'confirm',weight:.5,id:'order-placed'},{f:CUE.assertion,kind:'snap',action:'error',weight:.4,id:'assertion-failed'},{f:CUE.diff,kind:'land',action:'card-land',weight:.5,id:'source-diff'},{f:CUE.lockup,kind:'hit',action:'logo-lock',weight:.45,id:'caustica-lockup'}];}
+export const declares=()=>[];

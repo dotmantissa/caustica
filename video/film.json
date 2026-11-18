@@ -1,0 +1,29 @@
+{
+  "template": "ui-walkthrough",
+  "started": "2026-11-18T13:58:28.823Z",
+  "devices": {
+    "ground": "supplied-forest-lit-stage",
+    "voice": "Inter build / ink / blur",
+    "emphasis": "none",
+    "signature": "ninety-dollar-contract-sheet",
+    "moves": [
+      "purposeful-crop",
+      "macro-to-wide",
+      "front-loaded-sheet-land"
+    ],
+    "seams": [
+      "blurThrough",
+      "sharedElement",
+      "matchCut"
+    ],
+    "end": "contract-sheet-to-centered-Caustica",
+    "logo": "supplied-Caustica-wordmark",
+    "type": "Inter Variable / Geist Mono"
+  },
+  "allow": [
+    "Brand-supplied forest and paper",
+    "Actual serif only in product footage",
+    "240-second evidence demo uses long proof holds and six-second close"
+  ],
+  "recent": []
+}
