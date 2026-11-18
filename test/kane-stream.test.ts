@@ -6,7 +6,7 @@ const process={exitCode:0,timedOut:false,signal:null};
 const stream=(events:unknown[])=>events.map(e=>JSON.stringify(e)).join('\n');
 test('incomplete, conflicting, error and exit-disagreeing streams cannot establish pass',()=>{
  assert.equal(parseStream(stream([start,end]),process).ok,true);
- for(const events of [[start],[start,end,end],[start,{type:'error',message:'Upload failed'},end],[{...start,cli_version:'future'},end]])assert.equal(parseStream(stream(events),process).ok,false);
+ for(const events of [[start],[start,end,end],[start,end,{step:3,status:'running'}],[start,{type:'error',message:'Upload failed'},end],[{...start,cli_version:'future'},end]])assert.equal(parseStream(stream(events),process).ok,false);
  assert.equal(parseStream(stream([start,end])+'\n{"type":',process).ok,false);
  assert.equal(parseStream(stream([start,end]),{...process,exitCode:1}).ok,false);
  assert.equal(parseStream(stream([start,end]),{...process,timedOut:true}).ok,false);

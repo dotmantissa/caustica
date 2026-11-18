@@ -16,6 +16,7 @@ export function parseStream(text:string,process:Pick<ProcessResult,'exitCode'|'t
  if(starts.length!==1||starts[0].cli_version!=='0.10.6'||starts[0].v!==1)return bad('Unsupported Kane stream version',events);
  if(ends.length!==1)return bad('Missing or conflicting terminal run_end events',events);
  const terminal=ends[0];if(!['passed','failed'].includes(terminal.status))return bad('Unsupported Kane terminal status',events);
+ if(events.at(-1)!==terminal)return bad('Events continue after terminal run_end',events);
  if(events.some(e=>e.type==='error'))return bad('Kane reported an execution or upload error',events);
  if(process.exitCode!==(terminal.status==='passed'?0:1))return bad('Kane exit status disagrees with terminal evidence',events);
  return {ok:true,terminal,events};

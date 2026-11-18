@@ -2,7 +2,7 @@
 
 **Caustica verifies an AI repair against frozen requirements, tests whether a declared defect is detectable, and rejects results for changed requirements or a different served build.** It is the selected Witness concept under the user-approved product name.
 
-Project root: `/home/dotmantissa/hackathons/caustica`. Prepared 18 November 2026. This document is the build specification; application code and live integrations have not been implemented. The historical idea comparison remains in the sibling Kane research project.
+Project root: `/home/dotmantissa/hackathons/caustica`. Prepared 18 November 2026. This document records the original build specification; README.md describes the implemented interface and current validation. The historical idea comparison remains in the sibling Kane research project.
 
 ## 1. Deliverable and definition of done
 
@@ -310,9 +310,9 @@ Required: new public event-period GitHub repository, application/agent/Kane expl
 
 Use a working recorded fallback for Kane/agent service availability and check how judges can access evidence; it does not replace the actual integration during the build. Draft launch copy after the proof exists. Public publication/account actions are separate delivery work, not completed by this planning turn.
 
-**Done now:** created the sibling Caustica directory, initialized a fresh `main` repository, maintained a root ignored checklist, verified agent-file ignore rules, inspected prior research and checked the installed Codex help/version. No dependencies installed in Caustica, app code written, live flow performed, repair invoked, credentials configured or publication/deployment performed.
+**Initial planning checkpoint (historical):** created the sibling Caustica directory, initialized a fresh `main` repository, maintained a root ignored checklist, verified agent-file ignore rules, inspected prior research and checked the installed Codex help/version. Implementation and live validation now proceed in the existing repository; see README.md and the canonical ignored TASKS.md for current evidence.
 
-**Exact first build step:** complete M0 and record a real healthy/incorrect assertion pair plus usable evidence. Then scaffold `package.json`, the owned server/app and explicit input manifest for M1. All later success states remain prospective until those operations run.
+**Original first build step (historical):** complete M0 and record a real healthy/incorrect assertion pair plus usable evidence, then scaffold the owned server/app and explicit input manifest. Success states require actual recorded execution.
 
 ## 15. Source basis and limits
 
