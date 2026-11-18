@@ -8,6 +8,7 @@ test('only a matching positive/relevant effective fault pair approves',()=>{
  assert.equal(approve(healthy,control,expected).verdict,'verified');
  for(const mutated of [{...control,controlEffective:false},{...control,outcome:{kind:'inconclusive' as const,reason:'Upload failed'}},{...control,outcome:{kind:'assertion-failed' as const,acceptanceId:'order-refresh'}}])assert.equal(approve(healthy,mutated,expected).verdict,'inconclusive');
  assert.equal(approve(healthy,undefined,expected).verdict,'inconclusive');
+ assert.equal(approve({...healthy,identityValid:false,outcome:{kind:'inconclusive',reason:'Fixture startup timed out'}},undefined,expected).verdict,'inconclusive');
 });
 test('changed acceptance, repaired content, global variables and altered artifacts reject reuse',()=>{
  for(const e of [{...expected,boundaryDigest:'changed'},{...expected,appDigest:'repaired'},{...expected,globalVariablesDigest:'changed'}])assert.equal(approve(healthy,control,e).verdict,'evidence-rejected');

@@ -7,7 +7,11 @@ export function approve(healthy:RunProof,control:RunProof|undefined,expected:{bo
  for(const proof of [healthy,control].filter((p):p is RunProof=>!!p)){
   if(proof.boundaryDigest!==expected.boundaryDigest||proof.globalVariablesDigest!==expected.globalVariablesDigest)return {verdict:'evidence-rejected',reason:'Frozen requirements or execution inputs changed'};
   if(proof.appDigest!==expected.appDigest)return {verdict:'evidence-rejected',reason:'Evidence belongs to different application bytes'};
-  if(!proof.identityValid||!proof.artifactsValid)return {verdict:'evidence-rejected',reason:'Served identity or recorded artifacts do not match'};
+  if(!proof.artifactsValid)return {verdict:'evidence-rejected',reason:'Recorded artifacts do not match'};
+  if(!proof.identityValid){
+   if(proof.outcome.kind==='inconclusive'&&!/mismatch|changed/i.test(proof.outcome.reason??''))return {verdict:'inconclusive',reason:proof.outcome.reason??'Fixture identity could not be checked'};
+   return {verdict:'evidence-rejected',reason:'Served identity does not match'};
+  }
  }
  if(healthy.control!=='none')return {verdict:'evidence-rejected',reason:'Healthy proof has a fault enabled'};
  if(healthy.outcome.kind==='assertion-failed')return {verdict:'requirement-failed',reason:'The unchanged acceptance requirement failed'};

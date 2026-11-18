@@ -11,6 +11,7 @@ import {readRecordedRun,runDirectory,verify,artifactIndex} from './verify.js';
 import type {Receipt} from './records.js';
 const exec=promisify(execFile);
 export async function workspaceManifest(root:string):Promise<Map<string,string>>{
+ if((await lstat(root)).isSymbolicLink())throw new Error('Repair workspace root is a symlink');
  const found=new Map<string,string>();
  async function walk(relative=''){
   for(const name of (await readdir(join(root,relative))).sort()){

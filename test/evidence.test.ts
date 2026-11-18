@@ -3,7 +3,7 @@ import {strToU8} from 'fflate';
 import {normalizePack,type PackFiles} from '../src/evidence.js';import {parseStream} from '../src/kane.js';
 async function fixture(name:string){const v=JSON.parse(await readFile(new URL('./fixtures/'+name+'.json',import.meta.url),'utf8'));const files:PackFiles=Object.fromEntries(Object.entries(v.files).map(([p,s])=>[p,strToU8(s as string)]));const exitCode=v.events.at(-1).status==='passed'?0:1;return {v,files,stream:parseStream(v.events.map(JSON.stringify).join('\n'),{exitCode,timedOut:false,signal:null})};}
 test('real metadata distinguishes healthy checkout, explicit fault assertion and preassertion investigation',async()=>{
- for(const [name,kind] of [['healthy-v1','passed'],['control-v2','assertion-failed'],['preassertion-failure-v1','inconclusive']]){const f=await fixture(name);assert.equal(normalizePack(f.files,f.stream,f.v.url,'a'.repeat(64)).kind,kind,name);}
+ for(const [name,kind] of [['healthy-v1','passed'],['healthy-bifurcated-v3','passed'],['control-v2','assertion-failed'],['preassertion-failure-v1','inconclusive']]){const f=await fixture(name);assert.equal(normalizePack(f.files,f.stream,f.v.url,'a'.repeat(64)).kind,kind,name);}
 });
 test('summaries, wrong expected amounts, missing page state and unknown schemas do not calibrate',async()=>{
  const f=await fixture('control-v2');

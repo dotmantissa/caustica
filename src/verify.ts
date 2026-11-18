@@ -38,7 +38,7 @@ export async function executeRun(project:Project,frozen:Frozen,sourceRoot=projec
    if(current.boundaryDigest!==frozen.boundaryDigest||current.globalVariablesDigest!==frozen.globalVariablesDigest||sourceAfter!==s.appDigest)identityValid=false;
    const orders=await fetch(fixture.url+'/api/orders',{signal:AbortSignal.timeout(5000)}).then(r=>r.json()) as any[];
    await atomicJson(store.path('orders-observed.json'),orders);
-   if(outcome.kind==='passed'&&!orders.some(o=>String(o.id)===(outcome.terminal?.final_state as any)?.order_id&&o.product==='Caustica Field Notes'&&o.coupon==='SAVE10'&&o.totalCents===9000))outcome={...outcome,kind:'inconclusive',reason:'Persisted server order does not corroborate browser evidence'};
+   if(outcome.kind==='passed'&&!orders.some(o=>String(o.id)===outcome.orderId&&o.product==='Caustica Field Notes'&&o.coupon==='SAVE10'&&o.totalCents===9000))outcome={...outcome,kind:'inconclusive',reason:'Persisted server order does not corroborate browser evidence'};
   }finally{await fixture.stop();}
  }catch(e:any){outcome={kind:'inconclusive',reason:e.message};}
  await atomicJson(store.path('evidence-normalized.json'),outcome);await store.stage('classified',{outcome:outcome.kind,identityValid});

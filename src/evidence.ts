@@ -27,7 +27,8 @@ export function normalizePack(files:PackFiles,stream:KaneStream,url:string,evide
   const base=dirname(resultPaths[0]);const result=yaml(text(files,resultPaths[0]));const terminal=stream.terminal;
   const recording=stream.events.find(e=>e.type==='recording_state');
   if(result.evidence!=='0.1'||result.status!==terminal.status||result.external_id?.execution_id!==run.run_id||result.external_id?.session_id!==recording?.session_id||!run.environment?.surfaces?.includes(url))return inconclusive('Pack and terminal execution identities disagree');
-  const actions=text(files,base+'/logs/0-actions.ndjson').split('\n').filter(l=>l.trim()).map(l=>JSON.parse(l));
+  const actionPaths=Object.keys(files).filter(p=>p.startsWith(base+'/logs/')&&/\/\d+-actions\.ndjson$/.test(p)).sort();
+  const actions=actionPaths.flatMap(p=>text(files,p).split('\n').filter(l=>l.trim()).map(l=>JSON.parse(l)));
   const steps=Object.keys(files).filter(p=>p.startsWith(base+'/steps/')&&p.endsWith('/step.json')).map(path=>({path,meta:JSON.parse(text(files,path))}));
   const assertions=steps.filter(s=>s.meta.kind==='assert').map(s=>{
    const action=actions.find(a=>a.action_id===s.meta.action_id&&a.action_type==='assert');
@@ -57,16 +58,21 @@ export function normalizePack(files:PackFiles,stream:KaneStream,url:string,evide
    if(!screenshot||!files[screenshot])return inconclusive('Failed assertion screenshot missing');
    return {...common,kind:'assertion-failed',acceptanceId:'coupon-total',expectedCents:9000,observedCents,screenshot};
   }
-  if(result.steps?.some((s:any)=>s.status!=='passed')||!applied||!coupon||coupon.tree.passed!==true||amount(observed(numeric(coupon)??{}))!==9000||amount(terminal.final_state?.displayed_total)!==9000)return inconclusive('Healthy coupon assertion evidence is incomplete');
+  const displayed=actions.find(a=>a.action_type==='analyze'&&a.output_variable==='displayed_total'&&a.status==='success');
+  // In bifurcated flows final_state contains only the final run's variables.
+  // Preserve the explicit extraction recorded in the earlier action log.
+  if(result.steps?.some((s:any)=>s.status!=='passed')||!applied||!coupon||coupon.tree.passed!==true||amount(observed(numeric(coupon)??{}))!==9000||amount(displayed?.output_value)!==9000||(terminal.final_state?.displayed_total!==undefined&&amount(terminal.final_state.displayed_total)!==9000))return inconclusive('Healthy coupon assertion evidence is incomplete');
   const final=supported.find(a=>a.tree.is_final&&a.tree.passed===true&&/Caustica Field Notes/.test(description(a))&&/SAVE10/.test(description(a))&&numeric(a));
   if(!final||final.tree.sub_results.some((s:any)=>!s.passed)||amount(observed(numeric(final)))!==9000)return inconclusive('Persisted order assertion evidence is incomplete');
-  const har=JSON.parse(text(files,base+'/logs/0-network.har'));const entries=har.log?.entries??[];
+  const entries=Object.keys(files).filter(p=>p.startsWith(base+'/logs/')&&/\/\d+-network\.har$/.test(p)).sort().flatMap(p=>JSON.parse(text(files,p)).log?.entries??[]);
   const order=entries.find((e:any)=>e.request?.url===url+'/api/orders'&&e.request.method==='POST'&&e.response?.status===201);
   const reload=order&&entries.find((e:any)=>e.request?.url===url+'/'&&e.request.method==='GET'&&e.response?.status===200&&Date.parse(e.startedDateTime)>Date.parse(order.startedDateTime));
   const history=reload&&entries.find((e:any)=>e.request?.url===url+'/api/orders'&&e.request.method==='GET'&&e.response?.status===200&&Date.parse(e.startedDateTime)>Date.parse(reload.startedDateTime));
-  if(!order||!reload||!history||!terminal.final_state?.order_id)return inconclusive('Fresh document and persisted history requests after order creation are missing');
+  const extractedId=actions.find(a=>a.action_type==='analyze'&&a.output_variable==='order_id'&&a.status==='success')?.output_value;
+  const orderId=String(extractedId??terminal.final_state?.order_id??'').match(/^(?:Order\s+)?(\d+)$/i)?.[1];
+  if(!order||!reload||!history||!orderId)return inconclusive('Fresh document and persisted history requests after order creation are missing');
   const screenshot=Object.keys(files).find(p=>p.startsWith(dirname(final.path)+'/screenshot.')&&/\.(jpg|png)$/.test(p));
-  return {...common,kind:'passed',expectedCents:9000,observedCents:9000,...(screenshot?{screenshot}:{})};
+  return {...common,kind:'passed',expectedCents:9000,observedCents:9000,orderId,...(screenshot?{screenshot}:{})};
  }catch(e:any){return inconclusive('Unsupported or incomplete artifact: '+e.message);}
 }
 export async function normalizeEvidence(pack:string|undefined,validated:boolean,stream:KaneStream,url:string,directory:string):Promise<Outcome>{
