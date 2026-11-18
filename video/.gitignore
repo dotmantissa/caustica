@@ -16,3 +16,5 @@ __pycache__/
 /public/media/
 /public/audio/
 /public/evidence/
+
+/node_modules
