@@ -1,0 +1,109 @@
+{
+  "film": "CausticaDemo",
+  "masterSha256": "36446aae047f7f83d4782e483dee941ea7811e4cf3c0167a0e139de54243f9b0",
+  "spec": "1920x1080@30, 240 seconds, 7200 frames, H264/AAC",
+  "reviewScope": {
+    "contactSheet": "31 final-master samples",
+    "nativeFrames": [
+      4380,
+      4620,
+      4860,
+      5460,
+      5700,
+      6030,
+      6480,
+      6780,
+      6960,
+      7110
+    ],
+    "sampledTransitions": [
+      90,
+      540,
+      1020
+    ],
+    "continuousPlayback": false,
+    "humanAudioListening": false,
+    "priorReview": "Earlier Director review covered intro, frozen contract, healthy/control/regression footage and desktop/mobile report."
+  },
+  "pictures": [
+    {
+      "frame": 4380,
+      "reads": "yes",
+      "what": "Actual pricing diff restores SAVE10 calculation."
+    },
+    {
+      "frame": 4620,
+      "reads": "yes",
+      "what": "Manifest accepts only the existing pricing file change."
+    },
+    {
+      "frame": 4860,
+      "reads": "yes",
+      "what": "Developer-mediated candidate identifies its fresh verification."
+    },
+    {
+      "frame": 5460,
+      "reads": "yes",
+      "what": "Reloaded history retains Order 1, SAVE10 and $90."
+    },
+    {
+      "frame": 5700,
+      "reads": "yes",
+      "what": "Positive result observes 9000 cents; independent fault observes 10000 against expected 9000."
+    },
+    {
+      "frame": 6030,
+      "reads": "yes",
+      "what": "Changed frozen requirements reject old evidence."
+    },
+    {
+      "frame": 6480,
+      "reads": "yes",
+      "what": "Different application bytes reject the receipt."
+    },
+    {
+      "frame": 6780,
+      "reads": "yes",
+      "what": "Report reconciles all five genuine application/control stages."
+    },
+    {
+      "frame": 6960,
+      "reads": "yes",
+      "what": "Final claim is bounded to this contract and control."
+    },
+    {
+      "frame": 7110,
+      "reads": "yes",
+      "what": "Caustica wordmark closes in the centered sheet."
+    }
+  ],
+  "checks": {
+    "exactSpecs": "Reconfirmed with ffprobe during resume.",
+    "deliveryIntegrity": "All five previously delivered files matched their source and recorded SHA256 during resume.",
+    "fullDecode": "Prior full-master decode passed; identical master hash reconfirmed.",
+    "narrativePlacement": "Final claim and close are centered; sampled final frames have no edge narrative labels.",
+    "savedHistoryCrop": "Previously requested correction is verified at frame 5460.",
+    "repairHonesty": "Narration and candidate identify developer-mediated repair and the actual Codex authentication failure.",
+    "ghostCut540": "Sampled sequence shows outgoing sheet defocused, then incoming frozen record; no readable double exposure observed.",
+    "cineticLook": "Failed; retain supplied real product paper/serif treatment.",
+    "cineticForensics": "Failed: 319 failures and 203 warnings. Motion, seams, cadence and reading holds remain limitations."
+  },
+  "issues": [
+    {
+      "priority": "P1",
+      "frame": "90,1020",
+      "problem": "The intro-to-checkout and diagram-to-record changes are visible hard cuts, confirmed in sampled sequences.",
+      "disposition": "Retained in delivered demo; no claim that all cinematic seam gates passed."
+    },
+    {
+      "priority": "P1",
+      "frame": "3540-4230",
+      "problem": "Dense bundle and authentication records rely on narration and reading holds more than visual action.",
+      "disposition": "Retained to show the real failure and repair provenance honestly."
+    }
+  ],
+  "weakest": "126-129 seconds: dense repair bundle/transcript material needs narration to explain its significance.",
+  "overall": "Final proof, rejections, saved history and closing frames are readable and accurate. Exact master and delivered copies are verified. Accept the existing master as the completed factual demonstration with recorded style limitations; do not describe it as passing every Cinetic gate or a continuous playback/listening review.",
+  "disposition": "delivered-with-style-limitations",
+  "recordedAt": "2026-11-18T15:55:26.757807+00:00"
+}
