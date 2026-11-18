@@ -1,0 +1,14 @@
+diff --git a/apps/checkout/src/pricing.mjs b/apps/checkout/src/pricing.mjs
+index e6ed586..ed98a06 100644
+--- a/apps/checkout/src/pricing.mjs
++++ b/apps/checkout/src/pricing.mjs
+@@ -1,7 +1,7 @@
+-// Seeded application-source regression, separate from calibration control.
++// Coupon pricing; the independent response-layer control is unchanged.
+ export function quote(quantity, coupon) {
+   if (quantity !== 1) throw new Error('Quantity must be one');
+   const subtotalCents = 10_000;
+-  const discountCents = 0;
++  const discountCents = coupon === 'SAVE10' ? subtotalCents / 10 : 0;
+   return { subtotalCents, discountCents, totalCents: subtotalCents - discountCents };
+ }

@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verified repair record — Caustica</title><style>:root{--paper:#f5f0e6;--white:#fffdf6;--ink:#252d25;--forest:#254c3b;--secondary:#51594f;--line:#b8bdae;--error:#a32622;color-scheme:light;scrollbar-color:var(--forest) var(--paper)}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 Georgia,serif}::selection{background:var(--forest);color:var(--white)}a{color:var(--forest);text-underline-offset:.24em}a:hover{color:var(--ink)}:focus-visible{outline:3px solid var(--forest);outline-offset:4px}header,main,footer{max-width:1120px;margin:auto;padding-inline:32px}header{padding-block:28px;display:flex;gap:20px;justify-content:space-between;border-bottom:1px solid var(--line)}header a{font-size:1.6rem;font-weight:bold;text-decoration:none}main{padding-top:40px}h1{font-size:2.6rem;line-height:1.18;letter-spacing:-.02em;font-weight:normal;margin:0 0 20px;text-wrap:balance}h2{font-size:1.5rem;font-weight:normal;line-height:1.3;margin:40px 0 16px}h3{font-size:1.1rem;margin:0 0 10px}p{max-width:70ch;margin:0 0 14px}.status{font-weight:bold;color:var(--forest)}.evidence-rejected,.requirement-failed{color:var(--error)}.inconclusive{color:var(--secondary)}table{width:100%;border-collapse:collapse;margin-block:20px;font-family:system-ui,sans-serif;font-size:.94rem}th,td{text-align:left;padding:16px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}th{font-weight:600}td:first-child,th:first-child{padding-left:0}.table-wrap{overflow-x:auto}details{border-top:1px solid var(--line);padding-block:18px}summary{cursor:pointer;min-height:44px;display:list-item;color:var(--forest)}summary:hover{text-decoration:underline}code,pre{font: .85rem/1.6 ui-monospace,monospace;overflow-wrap:anywhere;white-space:pre-wrap}pre{padding:18px;background:var(--white);max-height:500px;overflow:auto}dl{font-family:system-ui,sans-serif;max-width:80ch;font-size:.9rem}dt{font-weight:600;margin-top:12px}dd{margin:4px 0 0;overflow-wrap:anywhere}.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}figure{margin:0}img{width:100%;height:auto;display:block}figcaption{margin-top:10px;font-size:.9rem;color:var(--secondary)}.run-link{display:block;margin-top:8px;overflow-wrap:anywhere;font-size:.8rem}.proof{border-top:1px solid var(--line);padding-top:22px;margin-top:30px}footer{padding-block:40px;color:var(--secondary);font-size:.86rem}@media(max-width:650px){header,main,footer{padding-inline:20px}.shots{grid-template-columns:1fr}h1{font-size:2rem}header{flex-wrap:wrap}th,td{padding:12px 8px}table{min-width:520px}}</style></head><body><header><a href="#top">Caustica</a><span>Checkout verification record</span></header><main id="top"><h1>A repair verified against unchanged requirements.</h1><p>This is a sanitized record of actual Kane runs and a recorded coding-agent repair on the owned checkout. Original run IDs and content digests identify the private evidence packs. The report contains no account identifiers or share links.</p><h2>Actual proof chain</h2><div class="table-wrap"><table><thead><tr><th>Stage</th><th>Observed result</th><th>Expected / observed</th></tr></thead><tbody><tr><td>Healthy application</td><td>Passed</td><td>$90.00 / $90.00</td></tr><tr><td>Independent fault</td><td>Requirement failed</td><td>$90.00 / $100.00</td></tr><tr><td>Seeded source regression</td><td>Requirement failed</td><td>$90.00 / $100.00</td></tr><tr><td>Repaired application</td><td>Passed</td><td>$90.00 / $90.00</td></tr><tr><td>Repaired independent fault</td><td>Requirement failed</td><td>$90.00 / $100.00</td></tr></tbody></table></div><div class="shots"><figure><a href="checkout-2026-11-18T13-58-48-544Z-0dcebe37-screenshot.jpg"><img src="checkout-2026-11-18T13-58-48-544Z-0dcebe37-screenshot.jpg" alt="Kane screenshot from Healthy application" loading="lazy"></a><figcaption>Healthy application · Real Kane capture</figcaption></figure><figure><a href="control-2026-11-18T14-02-30-008Z-0c8c9e64-screenshot.jpg"><img src="control-2026-11-18T14-02-30-008Z-0c8c9e64-screenshot.jpg" alt="Kane screenshot from Independent fault" loading="lazy"></a><figcaption>Independent fault · Real Kane capture</figcaption></figure><figure><a href="checkout-2026-11-18T14-04-57-664Z-629b7cc1-screenshot.jpg"><img src="checkout-2026-11-18T14-04-57-664Z-629b7cc1-screenshot.jpg" alt="Kane screenshot from Seeded source regression" loading="lazy"></a><figcaption>Seeded source regression · Real Kane capture</figcaption></figure><figure><a href="checkout-2026-11-18T14-19-12-589Z-d85cbeff-screenshot.jpg"><img src="checkout-2026-11-18T14-19-12-589Z-d85cbeff-screenshot.jpg" alt="Kane screenshot from Repaired application" loading="lazy"></a><figcaption>Repaired application · Real Kane capture</figcaption></figure><figure><a href="control-2026-11-18T14-23-37-045Z-32767740-screenshot.jpg"><img src="control-2026-11-18T14-23-37-045Z-32767740-screenshot.jpg" alt="Kane screenshot from Repaired independent fault" loading="lazy"></a><figcaption>Repaired independent fault · Real Kane capture</figcaption></figure></div><p>Repair mode: Developer-mediated coding-agent feedback.</p><h2>Actual application repair</h2><pre>diff --git a/apps/checkout/src/pricing.mjs b/apps/checkout/src/pricing.mjs
+index e6ed586..ed98a06 100644
+--- a/apps/checkout/src/pricing.mjs
++++ b/apps/checkout/src/pricing.mjs
+@@ -1,7 +1,7 @@
+-// Seeded application-source regression, separate from calibration control.
++// Coupon pricing; the independent response-layer control is unchanged.
+ export function quote(quantity, coupon) {
+   if (quantity !== 1) throw new Error(&#39;Quantity must be one&#39;);
+   const subtotalCents = 10_000;
+-  const discountCents = 0;
++  const discountCents = coupon === &#39;SAVE10&#39; ? subtotalCents / 10 : 0;
+   return { subtotalCents, discountCents, totalCents: subtotalCents - discountCents };
+ }
+</pre><h2>Proof reuse rejected</h2><p>Changed requirement: Frozen requirements or global variable inputs changed; freeze a new version and recalibrate</p><p>Different source bytes: Receipt belongs to different application bytes</p><details><summary>Sanitized run identifiers and content digests</summary><pre>{
+  &quot;version&quot;: 1,
+  &quot;scope&quot;: &quot;Sanitized summary of genuine local runs; raw sealed packs stay private&quot;,
+  &quot;demoId&quot;: &quot;demo-2026-11-18T14-27-45-150Z-69c601d3&quot;,
+  &quot;frozenContract&quot;: {
+    &quot;version&quot;: 3,
+    &quot;title&quot;: &quot;Checkout with SAVE10&quot;,
+    &quot;objective&quot;: &quot;Go to {{app_url}}. Enter SAVE10 in Coupon code and click Apply coupon. Store the displayed Total as &#39;displayed_total&#39;. Assert that Total is 90 dollars. Place the order. Store its order identifier as &#39;order_id&#39;. Reload the page. Open Order history. Assert that the same order is shown with Caustica Field Notes, coupon SAVE10 and a 90 dollar total.&quot;,
+    &quot;requirements&quot;: [
+      {
+        &quot;id&quot;: &quot;coupon-total&quot;,
+        &quot;expectedCents&quot;: 9000,
+        &quot;description&quot;: &quot;SAVE10 changes the visible total from $100.00 to $90.00.&quot;
+      },
+      {
+        &quot;id&quot;: &quot;order-total&quot;,
+        &quot;expectedCents&quot;: 9000,
+        &quot;description&quot;: &quot;Place order persists Caustica Field Notes, SAVE10 and a $90.00 total.&quot;
+      },
+      {
+        &quot;id&quot;: &quot;order-refresh&quot;,
+        &quot;expectedCents&quot;: 9000,
+        &quot;description&quot;: &quot;Order history shows the same order and amount after refresh.&quot;
+      }
+    ]
+  },
+  &quot;baselineVerification&quot;: &quot;verify-2026-11-18T13-58-48-537Z-7193a823&quot;,
+  &quot;repairedVerification&quot;: &quot;verify-2026-11-18T14-19-12-584Z-fc3c0da1&quot;,
+  &quot;repair&quot;: {
+    &quot;runId&quot;: &quot;repair-2026-11-18T14-19-12-428Z-ae74f534&quot;,
+    &quot;adapter&quot;: &quot;developer-mediated&quot;,
+    &quot;changed&quot;: [
+      &quot;apps/checkout/src/pricing.mjs&quot;
+    ]
+  },
+  &quot;results&quot;: [
+    {
+      &quot;stage&quot;: &quot;Healthy application&quot;,
+      &quot;runId&quot;: &quot;checkout-2026-11-18T13-58-48-544Z-0dcebe37&quot;,
+      &quot;executionId&quot;: &quot;54e08651-2477-4310-9868-4e5174c7c3e2&quot;,
+      &quot;appDigest&quot;: &quot;78419e9844c48d76a989348586aa4e643d91322856eef856c989d516ff9160c2&quot;,
+      &quot;boundaryDigest&quot;: &quot;00095c9df8e4311c349c1f2396e06aded888aa405575eb38fd2d19db6a1110f5&quot;,
+      &quot;control&quot;: &quot;none&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;,
+      &quot;expectedCents&quot;: 9000,
+      &quot;observedCents&quot;: 9000,
+      &quot;evidenceDigest&quot;: &quot;f4a780406c29189df4d2abf3e6b936cd5d5f9f00b38989975bdd9f936957ed04&quot;,
+      &quot;durationMs&quot;: 221413,
+      &quot;screenshot&quot;: &quot;checkout-2026-11-18T13-58-48-544Z-0dcebe37-screenshot.jpg&quot;
+    },
+    {
+      &quot;stage&quot;: &quot;Independent fault&quot;,
+      &quot;runId&quot;: &quot;control-2026-11-18T14-02-30-008Z-0c8c9e64&quot;,
+      &quot;executionId&quot;: &quot;1a97e99b-2ea5-4a35-af49-c5ca51c0451f&quot;,
+      &quot;appDigest&quot;: &quot;78419e9844c48d76a989348586aa4e643d91322856eef856c989d516ff9160c2&quot;,
+      &quot;boundaryDigest&quot;: &quot;00095c9df8e4311c349c1f2396e06aded888aa405575eb38fd2d19db6a1110f5&quot;,
+      &quot;control&quot;: &quot;ignore-discount&quot;,
+      &quot;outcome&quot;: &quot;assertion-failed&quot;,
+      &quot;expectedCents&quot;: 9000,
+      &quot;observedCents&quot;: 10000,
+      &quot;evidenceDigest&quot;: &quot;7073cd9aad4b2a31c41d344a34687692d51a2c291da6086430740d4461b893d5&quot;,
+      &quot;durationMs&quot;: 147529,
+      &quot;screenshot&quot;: &quot;control-2026-11-18T14-02-30-008Z-0c8c9e64-screenshot.jpg&quot;
+    },
+    {
+      &quot;stage&quot;: &quot;Seeded source regression&quot;,
+      &quot;runId&quot;: &quot;checkout-2026-11-18T14-04-57-664Z-629b7cc1&quot;,
+      &quot;executionId&quot;: &quot;4e3b64b2-2687-499a-9d45-ed3bb31f9a68&quot;,
+      &quot;appDigest&quot;: &quot;c42315e6596ff2a7e38175627235eef8c383cb85132933376e8b4a91019c8da5&quot;,
+      &quot;boundaryDigest&quot;: &quot;00095c9df8e4311c349c1f2396e06aded888aa405575eb38fd2d19db6a1110f5&quot;,
+      &quot;control&quot;: &quot;none&quot;,
+      &quot;outcome&quot;: &quot;assertion-failed&quot;,
+      &quot;expectedCents&quot;: 9000,
+      &quot;observedCents&quot;: 10000,
+      &quot;evidenceDigest&quot;: &quot;fba72e7482a1b27a963883e5b4317b9cb4f950f66e0194ce14ec6c406c806daf&quot;,
+      &quot;durationMs&quot;: 115962,
+      &quot;screenshot&quot;: &quot;checkout-2026-11-18T14-04-57-664Z-629b7cc1-screenshot.jpg&quot;
+    },
+    {
+      &quot;stage&quot;: &quot;Repaired application&quot;,
+      &quot;runId&quot;: &quot;checkout-2026-11-18T14-19-12-589Z-d85cbeff&quot;,
+      &quot;executionId&quot;: &quot;39b483fd-a37c-4ba2-a832-b71a6f9b51e4&quot;,
+      &quot;appDigest&quot;: &quot;e8ed602ca01fc848c56b88329f8406f59003415cc241eb189f4807a8b7b919df&quot;,
+      &quot;boundaryDigest&quot;: &quot;00095c9df8e4311c349c1f2396e06aded888aa405575eb38fd2d19db6a1110f5&quot;,
+      &quot;control&quot;: &quot;none&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;,
+      &quot;expectedCents&quot;: 9000,
+      &quot;observedCents&quot;: 9000,
+      &quot;evidenceDigest&quot;: &quot;3ece4bd6cb73b5d151e9d55670bacf212b7333eec2b201ecd6a8302448294f68&quot;,
+      &quot;durationMs&quot;: 264445,
+      &quot;screenshot&quot;: &quot;checkout-2026-11-18T14-19-12-589Z-d85cbeff-screenshot.jpg&quot;
+    },
+    {
+      &quot;stage&quot;: &quot;Repaired independent fault&quot;,
+      &quot;runId&quot;: &quot;control-2026-11-18T14-23-37-045Z-32767740&quot;,
+      &quot;executionId&quot;: &quot;8160b7e2-822c-40a3-b251-79bb20aad246&quot;,
+      &quot;appDigest&quot;: &quot;e8ed602ca01fc848c56b88329f8406f59003415cc241eb189f4807a8b7b919df&quot;,
+      &quot;boundaryDigest&quot;: &quot;00095c9df8e4311c349c1f2396e06aded888aa405575eb38fd2d19db6a1110f5&quot;,
+      &quot;control&quot;: &quot;ignore-discount&quot;,
+      &quot;outcome&quot;: &quot;assertion-failed&quot;,
+      &quot;expectedCents&quot;: 9000,
+      &quot;observedCents&quot;: 10000,
+      &quot;evidenceDigest&quot;: &quot;181b9299216950d8669986d5d87ab064e18b25979b2b54c6ce02c715b36c1f2e&quot;,
+      &quot;durationMs&quot;: 140286,
+      &quot;screenshot&quot;: &quot;control-2026-11-18T14-23-37-045Z-32767740-screenshot.jpg&quot;
+    }
+  ],
+  &quot;rejections&quot;: {
+    &quot;contract&quot;: {
+      &quot;verdict&quot;: &quot;evidence-rejected&quot;,
+      &quot;reason&quot;: &quot;Frozen requirements or global variable inputs changed; freeze a new version and recalibrate&quot;
+    },
+    &quot;staleBuild&quot;: {
+      &quot;verdict&quot;: &quot;evidence-rejected&quot;,
+      &quot;reason&quot;: &quot;Receipt belongs to different application bytes&quot;
+    }
+  }
+}</pre></details><p class="proof"><a href="summary.json">Summary JSON</a> · <a href="repair.diff">Source diff</a>. Reproduce with the repository’s frozen checkout contract and real account access.</p></main><footer>Evidence applies to this local checkout, frozen contract and declared coupon control. Honest local host; no production correctness or remote attestation claim.</footer></body></html>

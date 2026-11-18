@@ -80,6 +80,10 @@ The Codex adapter checks every workspace path after execution. Contract, harness
 
 Raw evidence may contain account identifiers and share links, so it stays private. Only explicitly sanitized reports, summaries and synthetic checkout screenshots belong in `artifacts/public/`. The metadata fixtures in `test/fixtures/` come from genuine runs with account fields and generated code removed; omitted image bytes mean they are parser fixtures, not sealed live evidence.
 
+## Recorded demonstration
+
+The [sanitized proof report](artifacts/public/demo-2026-11-18T14-27-45-150Z-69c601d3/index.html) links five genuine Kane executions, the actual one-file repair diff, and both proof-reuse rejections. This run used **developer-mediated coding-agent feedback** because the Codex subprocess could not authenticate. The repaired candidate passed a fresh positive/control pair against the unchanged frozen contract; the failed subprocess and interrupted verification attempts remain in private recovery records.
+
 ## Validate
 
 ```sh
